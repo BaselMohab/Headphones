@@ -14,7 +14,7 @@ const Footer = () => {
 
 return (
     <section className='footer'>
-    <div className='flex flex-row gap-7 text-white text-xl justify-center py-5 uppercase'>
+    <div className='flex flex-col gap-7 text-white text-xl justify-center py-5 uppercase text-center md:flex-row lg:flex-row xl:flex-row'>
         {footerNav.map((link) => {
             const {id, to, name} = link;
             return (
@@ -35,7 +35,7 @@ return (
             )
         })}
     </div>
-    <div className='flex flex-row gap-4 justify-center items-center text-white py-5'>
+    <div className='flex flex-col gap-4 justify-center items-center text-white py-5 md:flex-row lg:flex-row xl:flex-row'>
         <h2 className='text-xl capitalize'>subscribe to our newsletter</h2>
         <form className='flex gap-0' onSubmit={handleSubmit}>
             <input type="email"

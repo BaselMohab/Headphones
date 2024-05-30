@@ -29,7 +29,7 @@ setOpen(open === id ? null : id);
 };
 
 return (
-<section className='FAQ'>
+<section className='FAQ px-24 xs:px-10 2xs:px-10'>
     <h2 className='text-white text-4xl text-center mb-10 uppercase'>FAQs</h2>
     <div className='accordion'>
     {data.map((faq) => {

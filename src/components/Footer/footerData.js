@@ -37,6 +37,6 @@ export const footerNav = [
     {
         id: 4,
         name: 'contact',
-        to: ''
+        to: 'contact'
     },
 ]

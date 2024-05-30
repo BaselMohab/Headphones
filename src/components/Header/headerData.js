@@ -14,13 +14,9 @@ const headerData = [
         name: 'products',
         to: 'products'
     },
+
     {
         id: 4,
-        name: 'cart',
-        to: 'cart'
-    },
-    {
-        id: 5,
         name: 'contact',
         to: 'contact'
     },
