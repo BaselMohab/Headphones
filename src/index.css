@@ -47,6 +47,7 @@ body {
 /* Navbar */
 
 
+
 .navbar-nav{
   background-color: var(--navyblue--);
   color: var(--white--);
@@ -66,6 +67,16 @@ body {
 
 .navbar-link:hover{
   color: var(--borderclr--);
+}
+
+.navbar-toggler{
+  font-size: 2rem;
+  color: var(--white--);
+  transition: transform 0.3s ease; 
+}
+
+.navbar-toggler.rotate {
+    transform: rotate(-90deg);
 }
 
 .cart-btn{
@@ -714,6 +725,24 @@ body {
 
 
 /* Media Queries */
+
+@media (max-width: 767px) {
+    .navbar {
+        justify-content: flex-end;
+        top: 0; 
+        right: 0;
+        padding: 1rem 2rem;
+    }
+    .navbar-nav{
+      position: fixed;
+      z-index: 2;
+      width: 80%;
+    }
+    .navbar-toggler{
+      position: fixed;
+      z-index: 2;
+    }
+}
 
 
 @media only screen and (min-width: 425px) {
