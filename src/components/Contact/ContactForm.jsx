@@ -31,48 +31,56 @@ const ContactForm = () => {
         });
 
 return (
-    <div>
+    <div className='flex justify-center mt-10'>
+    <div className='contact-form bg-transparent rounded-xl shadow-lg py-5 px-10 text-white w-2/5 sm:w-3/5 md:w-3/5 lg:w-3/5 xl:w-2/5 mx-auto'>
     <Formik 
     initialValues={initialValues} 
     onSubmit={onSubmit} 
     validationSchema={validationSchema}>  
-        {() => (
-        <Form className='contact-form flex flex-col items-center gap-5 py-5'>
-        <div className='field'>
+        {() => 
+        <Form className='flex flex-col space-y-4'>
+        <div>
             <label htmlFor="name">Name</label><br />
-            <Field className='input' id="name" type="text" name="name" />
+            <Field className='form-input w-full rounded-md px-4 py-2 mt-3 outline-none bg-transparent' id="name" type="text" name="name" />
             <div className='error'>
-                <ErrorMessage name='name' component='span'/>
+                <ErrorMessage name='name' component='span' className='text-red-600'/>
             </div>
         </div>
-        <div className='field'>
+        <div>
             <label htmlFor="email">Email</label><br />
-            <Field className='input' id="email" type="email" name="email"/>
+            <Field className='form-input w-full rounded-md px-4 py-2 mt-3 outline-none bg-transparent' id="email" type="email" name="email"/>
             <div className='error'>
-                <ErrorMessage name='email' component='span' />
+                <ErrorMessage name='email' component='span' className='text-red-600' />
             </div>
         </div>
-        <div className='field'>
+        <div>
             <label htmlFor="phone">Phone number</label><br />
-            <Field className='input' id="phone" type="tel" name="phone"/>
+            <Field className='form-input w-full rounded-md px-4 py-2 mt-3 outline-none bg-transparent' id="phone" type="tel" name="phone"/>
             <div className='error'>
-                <ErrorMessage name='phone' component='span' />
+                <ErrorMessage name='phone' component='span' className='text-red-600' />
             </div>
         </div>
-        <div className='field'>
+        <div>
             <label htmlFor="message">Your message</label><br />
-            <Field className='input' id="message" type="text" name="message"/>
+            <Field
+                as="textarea"
+                className="form-input w-full rounded-md px-4 py-2 mt-3 outline-none bg-transparent"
+                id="message"
+                name="message"
+                rows="6"
+                />
             <div className='error'>
-                <ErrorMessage name='message' component='span' />
+                <ErrorMessage name='message' component='span' className='text-red-600' />
             </div>
         </div>
         <button
-        className='form-btn py-2 px-5 text-lg capitalize rounded-md'
+        className='form-btn w-full p-3 text-lg capitalize rounded-lg text-white'
         type='submit'>Submit</button>
     </Form>
-        )} 
+        } 
     
     </Formik>
+    </div>
     </div>
 );
 };

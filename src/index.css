@@ -536,7 +536,6 @@ body {
 }
 
 .about-us{
-  padding: 10rem 0 12rem;
   background-position: 80% 0;
   background-size: cover;
   background-attachment: fixed;
@@ -596,38 +595,12 @@ body {
 }
 
 .contact-form {
-  width: 100%;
-  max-width: 800px; /* Adjust the value as needed */
-  height: auto;
-  padding: 1.5rem;
   border: 2px solid var(--borderclr--);
   border-radius: 8px;
 }
 
-.contact-form .field label {
-  color: var(--white--);
-}
-
-.field .input {
-  background-color: transparent;
+.form-input{
   border: 2px solid var(--borderclr--);
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5rem 10rem;
-  color: var(--white--);
-  transition: border-color 0.3s;
-  margin: 0.5rem 0;
-  font-size: 16px;
-}
-
-.field .input:focus {
-  outline: none;
-  border-color: var(--navyblue--);
-}
-
-.error {
-  color: red;
 }
 
 .form-btn {
@@ -635,7 +608,6 @@ body {
   background-color: var(--borderclr--);
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   border: 1px solid var(--navyblue--);
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -643,10 +615,6 @@ body {
   background-color: var(--navyblue--);
   color: var(--white--);
   border-color: var(--borderclr--);
-}
-
-.form-btn:hover {
-  background-color: var(--hoverclr--);
 }
 
 
@@ -677,7 +645,7 @@ body {
 .s-product-btn{
   color: var(--white--);
   background-color: #7B113A;
-  padding: 1rem 7rem;
+  padding: 1rem 5rem;
   font-size: 1rem;
   border-radius: var(--radius-2);
   transition: var(--transition);
@@ -700,14 +668,12 @@ body {
 }
 
 .specs{
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .specs-info{
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
-  /* background-color: var(----); */
   border: 3px solid var(--borderclr--);
   transition: var(--transition);
 }

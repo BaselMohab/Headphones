@@ -42,7 +42,7 @@ return (
             placeholder='email address'
             value={emailAddress}
             onChange={(e) => setEmailAddress(e.target.value)}
-            className='w-60 p-2 text-black capitalize'/>
+            className='w-60 p-3 text-black capitalize'/>
             <button 
             type='submit'
             className='form-btn w-30 py-1 px-8'

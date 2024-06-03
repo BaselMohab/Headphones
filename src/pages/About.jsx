@@ -45,7 +45,7 @@ const About = () => {
                 </p>
             </div>
         </div>
-        <div className='about-us py-5 md:px-4 xs:px-3'>
+        <div className='about-us px-10 py-24'>
             <div className='about-us-content text-white flex flex-col items-center text-center gap-6 '>
                 <h2 className='text-3xl uppercase'>who are we?</h2>
                 <p className='text-xl capitalize'>Bass Headphones was founded in 2019 by James Bertuzzi, who personally oversees product development and manufacturing.</p>
