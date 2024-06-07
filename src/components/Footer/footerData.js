@@ -21,21 +21,26 @@ export const footerData = [
 export const footerNav = [
     {
         id: 1,
+        name: 'home',
+        to: '/'
+    },
+    {
+        id: 2,
         name: 'about',
         to: 'about'
     },
     {
-        id: 2,
+        id: 3,
         name: 'products',
         to: 'products'
     },
     {
-        id: 3,
+        id: 4,
         name: 'cart',
         to: 'cart'
     },
     {
-        id: 4,
+        id: 5,
         name: 'contact',
         to: 'contact'
     },

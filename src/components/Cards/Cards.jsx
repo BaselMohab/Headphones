@@ -1,7 +1,7 @@
 import React from 'react';
 import data from './cardsData'
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../../StoreContext & StoreReducer/StoreContext';
+import { useGlobalContext } from '../../AppContexts/StoreContext';
 
 const Cards = () => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import products from './productsData';
-import { useGlobalContext } from '../../StoreContext & StoreReducer/StoreContext';
+import {useGlobalContext} from '../../AppContexts/StoreContext';
 import { Link } from 'react-router-dom';
 
 const ProductsDetails = () => {

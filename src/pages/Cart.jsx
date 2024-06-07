@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartProducts from '../components/CartProducts';
-import { useGlobalContext } from '../StoreContext & StoreReducer/StoreContext';
+import { useGlobalContext } from '../AppContexts/StoreContext';
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -49,7 +49,7 @@ const Cart = () => {
     }
 
     return (
-        <section className='cart items-center'>
+        <section className='cart items-center px-4'>
         <h1 className='text-center text-white text-4xl uppercase'>Your Cart</h1>
         <div className="underline"></div>
         <div className='py-5'>
@@ -83,6 +83,27 @@ const Cart = () => {
                 </button>
             </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div className='total-box p-5 flex flex-col  order-first xl:order-none'>
             <h2 className='text-center text-white text-xl capitalize py-2'>order summary</h2>
             <div className='text-white flex flex-col gap-4 capitalize'>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import data from './headerData';
-import { useGlobalContext } from '../../StoreContext & StoreReducer/StoreContext';
+import { useGlobalContext } from '../../AppContexts/StoreContext';
 
 
 const Header = () => {

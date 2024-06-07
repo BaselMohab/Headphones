@@ -20,7 +20,7 @@ const About = () => {
                 <p className='text-md capitalize text-center lg:text-lg xl:text-xl'>
                     We believe in simplicity. Headphones should enable a great listening experience — no matter who is listening, or what is being listened to.
                 </p>
-                <p className='text-xl capitalize text-center'>
+                <p className='capitalize text-center text-md lg:text-lg xl:text-xl'>
                     Understated design, high quality materials, and a relentless focus on sound — no complications or gimmicks.
                 </p>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import productData from './productsData'
-import { useGlobalContext } from '../../StoreContext & StoreReducer/StoreContext';
+import { useGlobalContext } from '../../AppContexts/StoreContext';
 import specs from  "./specs"
 
 const SingleProductDetails = () => {
