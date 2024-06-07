@@ -13,27 +13,28 @@ const AppProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const add = (product) => {
-        const existingProduct = state.products.find((currentProduct) => currentProduct.id === product.id);
+    const existingProduct = state.products.find((currentProduct) => currentProduct.id === product.id);
 
-        let updatedCart;
-        if (existingProduct) {
-            updatedCart = state.products.map((currentProduct) => {
-                if (currentProduct.id === product.id) {
-                    return { ...currentProduct, amount: currentProduct.amount + 1 };
-                }
-                return currentProduct;
-            });
-        } else {
-            updatedCart = [...state.products, { ...product, amount: 1 }];
-        }
-
-        getTotal(updatedCart);
-
-        dispatch({
-            type: "add",
-            payload: updatedCart
+    let updatedCart;
+    if (existingProduct) {
+        updatedCart = state.products.map((currentProduct) => {
+            if (currentProduct.id === product.id) {
+                return { ...currentProduct, amount: currentProduct.amount + 1 };
+            }
+            return currentProduct;
         });
-    };
+    } else {
+        updatedCart = [...state.products, { ...product, amount: 1 }];
+    }
+
+    getTotal(updatedCart);
+
+    dispatch({
+        type: "add",
+        payload: updatedCart
+    });
+};
+
 
 
     const remove = (product) => {
