@@ -477,8 +477,14 @@ body {
   color: var(--borderclr--);
 }
 
-.cart-list{
-  border: 2px solid white;
+.card-product{
+  color: white;
+  box-shadow: var(--dark-shadow);
+  align-items: center;
+  text-align: center;
+  border: none;
+  border-radius: var(--radius-2);
+  transition: var(--transition);
 }
 
 
@@ -601,16 +607,16 @@ body {
 
 .form-btn {
   color: var(--white--);
-  background-color: var(--borderclr--);
+  background-color: var(--navyblue--);
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  border: 1px solid var(--navyblue--);
+  border: 2px solid var(--borderclr--);
   cursor: pointer;
 }
 
 .form-btn:hover {
-  background-color: var(--navyblue--);
+  background-color: var(--borderclr--);
   color: var(--white--);
-  border-color: var(--borderclr--);
+  border-color: var(--white--);
 }
 
 
@@ -695,9 +701,6 @@ background: linear-gradient(to left, #063f71, #000428); /* W3C, IE 10+/ Edge, Fi
 
 }
 
-.typo{
-  color: var(--white--);
-}
 
 .sign-btn{
   color: var(--navyblue--);

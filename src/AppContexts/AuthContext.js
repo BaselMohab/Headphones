@@ -1,57 +1,69 @@
-import React, { useContext, useState, useEffect } from "react";
-import { auth } from '../config/firebase.config';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "firebase/auth";
+    import React, { useContext, useState, useEffect } from "react";
+    import { auth } from '../config/firebase.config';
+    import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
 
-const AuthContext = React.createContext();
+    const AuthContext = React.createContext();
 
-export const useAuth = () => {
-return useContext(AuthContext);
-};
+    export const useAuth = () => {
+    return useContext(AuthContext);
+    };
 
-export const AuthProvider = ({ children }) => {
-const [currentUser, setCurrentUser] = useState();
-const [loading, setLoading] = useState(true);
+    export const AuthProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-const signUp = (email, password) => {
+    const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
-};
+    };
 
-const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
-}
+    const login = (email, password) => {
+    return setPersistence(auth, browserLocalPersistence).then(() => {
+        return signInWithEmailAndPassword(auth, email, password);
+    });
+    };
 
-const logout = () => {
-    return signOut()
-}
+    const logout = () => {
+    return signOut().then(() => {
+        localStorage.removeItem('currentUser');
+        setCurrentUser(null);
+    });
+    };
 
-const forgetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email)
-}
+    const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+    };
 
-useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-    setCurrentUser(user);
-    setLoading(false);
-    // The useEffect hook is responsible for subscribing to the onAuthStateChanged event 
-    // provided by the auth object from the Firebase configuration. 
-    // This event is triggered whenever the authentication state changes, 
-    // such as when a user signs in or signs out.
+    useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        setCurrentUser(user);
+        } else {
+        localStorage.removeItem('currentUser');
+        setCurrentUser(null);
+        }
+        setLoading(false);
     });
 
-    return unsubscribe;
-}, []);
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+        setCurrentUser(JSON.parse(storedUser));
+    }
 
-const value = {
+    return unsubscribe;
+    }, []);
+
+    const value = {
     currentUser,
     login,
     signUp,
     forgetPassword,
     logout
-};
+    };
 
-return (
+    return (
     <AuthContext.Provider value={value}>
-    {!loading && children}
+        {!loading && children}
     </AuthContext.Provider>
-);
-};
+    );
+    };

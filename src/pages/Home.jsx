@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Cards from '../components/Cards/Cards';
 import Arrival from '../components/Arrival';
 import Most from '../components/Most';
 import FAQ from '../components/FAQ/FAQ';
+import { useAuth } from '../AppContexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useState} from 'react';
 
 const Home = () => {
+
+  const {currentUser, logout} = useAuth()
+
+  const navigate = useNavigate()
+
+  const [error, setError] = useState("")
+
+  async function handleLogout() {
+    setError("")
+    try {
+    await logout()
+    navigate("/login")
+    } catch {
+    setError("Failed to log out")
+    }
+}
+
+useEffect(() => {
+  console.log("User logged out:", currentUser.email);
+}, [currentUser])
+
   return (
     <>
     <section className='home p-6 lg:px-16 grid grid-col text-center xl:grid-cols-2 '>
@@ -20,6 +44,11 @@ const Home = () => {
         <img className='home-img' src='../assets/images/img-1.png' alt='headphone' />
       </div>
     </section>
+    <div className="w-100 text-center mt-2">
+        <button variant="link" onClick={handleLogout}>
+        Log Out
+        </button>
+    </div>
     <Cards />
     <Arrival />
     <Most />
