@@ -46,9 +46,9 @@ const Cart = () => {
             <div className="underline"></div>
             <div className='py-5'>
                 {checkoutInitiated && (
-                    <Dialog open={open} handler={handleClose}>
-                        <DialogHeader>Checkout Confirmed</DialogHeader>
-                        <DialogBody>
+                    <Dialog open={open} handler={handleClose} className='p-3 bg-indigo-800'>
+                        <DialogHeader className='text-white font-bold'>Checkout Confirmed</DialogHeader>
+                        <DialogBody className='text-white font-bold text'>
                             Thank you for buying from us.
                         </DialogBody>
                         <DialogFooter>
