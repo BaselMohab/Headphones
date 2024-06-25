@@ -37,7 +37,7 @@ function App() {
   return (
     <AppProvider>
       <Router>
-        <AuthProvider>
+        {/* <AuthProvider> */}
           <ScrollRestoration />
           <Header />
           <Routes>
@@ -53,7 +53,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </Router>
     </AppProvider>
   );
