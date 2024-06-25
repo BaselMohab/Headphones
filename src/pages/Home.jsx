@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Cards from '../components/Cards/Cards';
-import Arrival from '../components/Arrival';
-import Most from '../components/Most';
+import Arrival from '../components/Arrival/Arrival';
+import Most from '../components/MostPurchased/Most';
 import FAQ from '../components/FAQ/FAQ';
 import { useAuth } from '../AppContexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState} from 'react';
+
+import {auth} from '../config/firebase.config';
+import { signOut} from "firebase/auth";
+
 
 const Home = () => {
 
@@ -16,19 +20,30 @@ const Home = () => {
 
   const [error, setError] = useState("")
 
-  async function handleLogout() {
-    setError("")
-    try {
-    await logout()
-    navigate("/login")
-    } catch {
-    setError("Failed to log out")
-    }
-}
+//   async function handleLogout() {
+//     setError("")
+//     try {
+//     await logout()
+//     navigate("/login")
+//     } catch {
+//     setError("Failed to log out")
+//     }
+// }
 
-useEffect(() => {
-  console.log("User logged out:", currentUser.email);
-}, [currentUser])
+  const handleLogout = () => {               
+        signOut(auth).then(() => {
+        // Sign-out successful.
+            navigate("/");
+            console.log("Signed out successfully")
+        }).catch((error) => {
+        // An error happened.
+        console.log(error);
+        });
+    }
+
+// useEffect(() => {
+//   console.log("User logged out:", currentUser.email);
+// }, [currentUser])
 
   return (
     <>
@@ -44,11 +59,11 @@ useEffect(() => {
         <img className='home-img' src='../assets/images/img-1.png' alt='headphone' />
       </div>
     </section>
-    <div className="w-100 text-center mt-2">
+    {/* <div className="w-100 text-center mt-2">
         <button variant="link" onClick={handleLogout}>
         Log Out
         </button>
-    </div>
+    </div> */}
     <Cards />
     <Arrival />
     <Most />

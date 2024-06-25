@@ -1,6 +1,6 @@
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Card, Input, Checkbox, Button, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../AppContexts/AuthContext';
@@ -19,25 +19,43 @@ const Signup = ({ onSignupSuccess }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
 
     const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
     const onSubmit = async (values, { setSubmitting }) => {
+        // console.log(values?.email , values?.password);
+        
         setSubmitting(true);
-        try {
-            setError("");
-            setLoading(true);
-            await signUp(values.email, values.password);
-            console.log("User signed up successfully");
-            onSignupSuccess();
-            navigate("/");
-        } catch {
+        
+        try{
+
+            await signUp(values?.email, values?.password);
+            // onSignupSuccess();
+            console.log("sucess😂");
+        }catch(err){
             setError("Failed to sign up");
-            console.log("Sign up failed");
+            console.log(error);
         }
+
+        // try {
+        //     setError("");
+        //     setLoading(true);
+        //     await signUp(values?.email, values?.password);
+        //     console.log("User signed up successfully");
+        //     onSignupSuccess();
+        //     navigate(location.state?.from || '/');
+        // } catch {
+        //     setError("Failed to sign up");
+        //     console.log("Sign up failed");
+        // }
         setLoading(false);
         setSubmitting(false);
     };
+    
+    useEffect(() => {
+        console.log("user logged in:", currentUser?.email);
+    }, [currentUser])
 
     const validationSchema = Yup.object({
         name: Yup.string().required('Name is required'),
@@ -49,9 +67,6 @@ const Signup = ({ onSignupSuccess }) => {
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Passwords must match").required("Confirm Password is required")
     });
 
-    useEffect(() => {
-        console.log("user logged in:", currentUser.email);
-    }, [currentUser])
 
     return (
         <div className="mt-24 p-10 flex justify-center">

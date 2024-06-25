@@ -1,6 +1,6 @@
     import React, { useContext, useState, useEffect } from "react";
     import { auth } from '../config/firebase.config';
-    import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
+    import { sendPasswordResetEmail, signOut, setPersistence, browserLocalPersistence } from "firebase/auth";
 
     const AuthContext = React.createContext();
 
@@ -9,56 +9,48 @@
     };
 
     export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState("");
     const [loading, setLoading] = useState(true);
 
     const signUp = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return auth.createUserWithEmailAndPassword(email, password)
     };
 
     const login = (email, password) => {
-    return setPersistence(auth, browserLocalPersistence).then(() => {
-        return signInWithEmailAndPassword(auth, email, password);
-    });
+    return auth.signInWithEmailAndPassword(email, password)
     };
 
     const logout = () => {
-    return signOut().then(() => {
-        localStorage.removeItem('currentUser');
-        setCurrentUser(null);
-    });
+        console.log("click");
+        return signOut();
     };
+
+    const getUser = () => {
+        return auth.currentUser;
+    }
 
     const forgetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
     };
 
     useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        setCurrentUser(user);
-        } else {
-        localStorage.removeItem('currentUser');
-        setCurrentUser(null);
-        }
-        setLoading(false);
-    });
+    const unsubscribe = auth.onAuthStateChanged(user => {
+        setCurrentUser(user)
+        setLoading(false)
+    })
 
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-        setCurrentUser(JSON.parse(storedUser));
-    }
+    return unsubscribe
+    }, [])
 
-    return unsubscribe;
-    }, []);
+    // console.log("CurrentUser:", currentUser.email);
 
     const value = {
     currentUser,
     login,
     signUp,
+    getUser,
     forgetPassword,
-    logout
+    logout,
     };
 
     return (

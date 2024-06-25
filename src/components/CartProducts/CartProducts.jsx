@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from '../AppContexts/StoreContext';
+import { useGlobalContext } from '../../AppContexts/StoreContext';
 
 const CartProducts = ({ item }) => {
     const { remove, increase, decrease } = useGlobalContext();

@@ -11,7 +11,6 @@ import Footer from "./components/Footer/Footer";
 import SingleProductDetails from './components/ProductsDetails/SingleProductDetails';
 
 //AuthFiles
-import PrivateRoute from './components/AuthFiles/protectedRoute';
 import Signup from './components/AuthFiles/Signup';
 import Login from './components/AuthFiles/Login';
 import ForgetPass from './components/AuthFiles/ForgetPass';
@@ -49,12 +48,9 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<SingleProductDetails />} />
 
-            {/* Protected Routes */}
-            <Route element={<PrivateRoute />}>
               <Route path="/cart" element={<Cart />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-            </Route>
           </Routes>
           <Footer />
         </AuthProvider>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CartProducts from '../components/CartProducts';
+import CartProducts from '../components/CartProducts/CartProducts';
 import { useGlobalContext } from '../AppContexts/StoreContext';
 import {
   Button,
@@ -88,7 +88,7 @@ const Cart = () => {
                 </div>
 
                 {/* Cart Box */}
-                <div className='total-box p-5 flex flex-col order-first xl:order-none'>
+                <div className='total-box p-5 flex flex-col order-first xl:order-none mb-10'>
                     <h2 className='text-center text-white text-xl capitalize py-2'>order summary</h2>
                     <div className='text-white flex flex-col gap-4 capitalize'>
                         <div className='flex flex-row'>
@@ -100,11 +100,27 @@ const Cart = () => {
                             <p>free</p>
                         </div>
                         <div className='flex flex-row items-center gap-5'>
+                            <h4 className='mr-auto'>Address</h4>
+                            <input
+                                className='px-2 py-1 rounded-md text-black'
+                                type='text'
+                                placeholder='253 st, Maadi'
+                            />
+                        </div>
+                        <div className='flex flex-row items-center gap-5'>
+                            <h4 className='mr-auto'>Phone Number</h4>
+                            <input
+                                className='px-2 py-1 rounded-md text-black'
+                                type='tel'
+                                placeholder='01xxxxxxxxxx'
+                            />
+                        </div>
+                        <div className='flex flex-row items-center gap-5'>
                             <h4 className='mr-auto'>add coupon code</h4>
                             <input
-                                className='p-1 rounded-md text-black'
+                                className='px-2 py-1 rounded-md text-black'
                                 type='text'
-                                placeholder='coupon'
+                                placeholder='Coupon'
                             />
                         </div>
                         <div className="underline-cart"></div>
@@ -112,14 +128,14 @@ const Cart = () => {
                             <h2 className='mr-auto'>Total</h2>
                             <span>${total}</span>
                         </div>
-                    </div>
-                    <div className='flex flex-col justify-center items-center p-2'>
-                        <button
-                            className='text-white bg-black w-48 uppercase py-3 rounded-md cart-check font-semibold'
-                            onClick={handleCheckout}
-                        >
-                            checkout
-                        </button>
+                            <div className='flex flex-col justify-center items-center p-2'>
+                                <button
+                                    className='text-white bg-black w-48 uppercase py-3 rounded-md cart-check font-semibold'
+                                    onClick={handleCheckout}
+                                >
+                                    checkout
+                                </button>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -461,7 +461,7 @@ body {
 
 .total-box{
   border: none;
-  max-height: 23rem;
+  max-height: 30rem;
   background-color: var(--navyblue--);
   border-radius: var(--radius);
 }

@@ -1,6 +1,6 @@
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../AppContexts/AuthContext';
@@ -15,6 +15,7 @@ const Login = ({ onSigninSuccess }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
 
     const onSubmit = async (values, { setSubmitting }) => {
         setSubmitting(true);
@@ -24,7 +25,7 @@ const Login = ({ onSigninSuccess }) => {
             await login(values.email, values.password);
             console.log("User signed in successfully");
             onSigninSuccess();
-            navigate("/");
+            navigate(location.state?.from || '/');
         } catch {
             setError("Failed to log in");
             console.log("Log in failed");
