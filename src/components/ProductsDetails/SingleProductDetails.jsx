@@ -60,7 +60,7 @@ const { id } = useParams();
                       </div>
                     </div>
                     <div className='flex flex-row gap-3'>
-                        <i class="fa-solid fa-music text-5xl benefits-box-icon"></i>
+                        <i className="fa-solid fa-music text-5xl benefits-box-icon"></i>
                       <div className='flex flex-col items-start'>
                         <p className='capitalize'>Free Apple Music Trial</p>
                         <p className='capitalize opacity-65'>Get 6 months of access to over 100 million songs, ad-free.*</p>
