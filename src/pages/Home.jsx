@@ -4,21 +4,21 @@ import Cards from '../components/Cards/Cards';
 import Arrival from '../components/Arrival/Arrival';
 import Most from '../components/MostPurchased/Most';
 import FAQ from '../components/FAQ/FAQ';
-import { useAuth } from '../AppContexts/AuthContext';
+// import { useAuth } from '../AppContexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 
-import {auth} from '../config/firebase.config';
-import { signOut} from "firebase/auth";
+// import {auth} from '../config/firebase.config';
+// import { signOut} from "firebase/auth";
 
 
 const Home = () => {
 
-  const {currentUser, logout} = useAuth()
+  // const {currentUser, logout} = useAuth()
 
   const navigate = useNavigate()
 
-  const [error, setError] = useState("")
+  // const [error, setError] = useState("")
 
 //   async function handleLogout() {
 //     setError("")
@@ -30,16 +30,16 @@ const Home = () => {
 //     }
 // }
 
-  const handleLogout = () => {               
-        signOut(auth).then(() => {
-        // Sign-out successful.
-            navigate("/");
-            console.log("Signed out successfully")
-        }).catch((error) => {
-        // An error happened.
-        console.log(error);
-        });
-    }
+  // const handleLogout = () => {               
+  //       signOut(auth).then(() => {
+  //       // Sign-out successful.
+  //           navigate("/");
+  //           console.log("Signed out successfully")
+  //       }).catch((error) => {
+  //       // An error happened.
+  //       console.log(error);
+  //       });
+  //   }
 
 // useEffect(() => {
 //   console.log("User logged out:", currentUser.email);

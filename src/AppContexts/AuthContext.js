@@ -9,7 +9,7 @@
     };
 
     export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState("");
+    // const [currentUser, setCurrentUser] = useState("");
     const [loading, setLoading] = useState(true);
 
     const signUp = (email, password) => {
@@ -25,9 +25,9 @@
         return signOut();
     };
 
-    const getUser = () => {
-        return auth.currentUser;
-    }
+    // const getUser = () => {
+    //     return auth.currentUser;
+    // }
 
     const forgetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
@@ -35,7 +35,7 @@
 
     useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
-        setCurrentUser(user)
+        // setCurrentUser(user)
         setLoading(false)
     })
 
@@ -45,10 +45,10 @@
     // console.log("CurrentUser:", currentUser.email);
 
     const value = {
-    currentUser,
+    // currentUser,
     login,
     signUp,
-    getUser,
+    // getUser,
     forgetPassword,
     logout,
     };

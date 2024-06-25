@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 
 //Contexts
 import { AppProvider } from './AppContexts/StoreContext';
-import { AuthProvider } from './AppContexts/AuthContext';
+// import { AuthProvider } from './AppContexts/AuthContext';
 
 //Components
 import Header from "./components/Header/Header";
@@ -42,8 +42,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} /> */}
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/forgetPass" element={<ForgetPass />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<SingleProductDetails />} />
