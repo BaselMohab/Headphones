@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import CartProducts from '../components/CartProducts/CartProducts';
 import { useGlobalContext } from '../AppContexts/StoreContext';
 import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
 } from "@material-tailwind/react";
 
 const Cart = () => {
@@ -32,12 +32,12 @@ const Cart = () => {
     const handleConfirm = () => {
         clearCart();
         setOpen(false);
-        setCheckoutInitiated(false); // Reset after clearing cart
+        setCheckoutInitiated(false);
     };
 
     const handleClose = () => {
         setOpen(false);
-        setCheckoutInitiated(false); // Reset after closing dialog
+        setCheckoutInitiated(false);
     };
 
     return (

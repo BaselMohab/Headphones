@@ -1,65 +1,86 @@
-
 export const initialState = {
-    total:  0,
-    products: [],
+    total: parseFloat(localStorage.getItem('total')) || 0,
+    products: JSON.parse(localStorage.getItem('cart')) || [],
     amount: 0,
 }
 
-
-const reducer = (state,action) => {
-    switch(action.type){
-        case "add" : {
+const reducer = (state, action) => {
+    switch(action.type) {
+        case "add": {
+            const updatedCart = action.payload; 
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
             return {
                 ...state,
-                products: action.payload
+                products: updatedCart
             }
         }
 
-        case "remove" : {
+        case "remove": {
+            const updatedCart = action.payload; 
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
             return {
                 ...state,
-                products: action.payload
+                products: updatedCart
             }
         }
 
-        case "total" : 
-        return {
-            ...state,
-            total: action.payload,
+        case "total": {
+            const total = action.payload; 
+            localStorage.setItem('total', total); 
+            return {
+                ...state,
+                total: total,
+            }
         }
 
-        case "clearCart" :
+        case "clearCart": {
+            const updatedCart = action.payload; 
+            localStorage.removeItem('cart');
+            localStorage.removeItem('total'); 
             return {
                 ...state,
-                products: action.payload,
+                products: updatedCart,
+                total: 0, 
             }
-
-        case "removeItem" : 
-        return {
-            ...state,
-            products : action.payload
         }
-        
-        case "increase" :
+
+        case "removeItem": {
+            const updatedCart = action.payload; 
+            localStorage.setItem('cart', JSON.stringify(updatedCart)); 
             return {
                 ...state,
-                products : action.payload
+                products: updatedCart
             }
+        }
 
-        case "decrease" :
+        case "increase": {
+            const updatedCart = action.payload; 
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
             return {
                 ...state,
-                products : action.payload
+                products: updatedCart
             }
+        }
 
-        case "amount" : 
+        case "decrease": {
+            const updatedCart = action.payload; 
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
             return {
                 ...state,
-                amount: action.payload,
-            }    
+                products: updatedCart
+            }
+        }
 
-        default: throw Error ("Cannot Add to the total")
+        case "amount": {
+            const amount = action.payload; 
+            return {
+                ...state,
+                amount: amount,
+            }
+        }
+
+        default: throw Error("Cannot Add to the total")
     }
 }
 
-export default reducer
+export default reducer;
