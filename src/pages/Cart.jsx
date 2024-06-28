@@ -67,8 +67,8 @@ const Cart = () => {
                     </Dialog>
                 )}
             </div>
-            <div className='grid m-6 gap-6 xl:grid-cols-3 mx-auto'>
-                <div className='col-span-2 px-5'>
+            <div className='grid m-6 gap-6 xl:grid-cols-3'>
+                <div className='col-span-1 xl:col-span-2 px-2'>
                     <div className="cartDetails">
                         {products.map((product, id) => 
                             <CartProducts
@@ -102,7 +102,7 @@ const Cart = () => {
                         <div className='flex flex-row items-center gap-5'>
                             <h4 className='mr-auto'>Address</h4>
                             <input
-                                className='px-2 py-1 rounded-md text-black'
+                                className='px-2 w-72 py-2 rounded-md text-black'
                                 type='text'
                                 placeholder='253 st, Maadi'
                             />
@@ -110,7 +110,7 @@ const Cart = () => {
                         <div className='flex flex-row items-center gap-5'>
                             <h4 className='mr-auto'>Phone Number</h4>
                             <input
-                                className='px-2 py-1 rounded-md text-black'
+                                className='px-2 w-72 py-2 rounded-md text-black'
                                 type='tel'
                                 placeholder='01xxxxxxxxxx'
                             />
@@ -118,10 +118,10 @@ const Cart = () => {
                         <div className='flex flex-row items-center gap-5'>
                             <h4 className='mr-auto'>add coupon code</h4>
                             <input
-                                className='px-2 py-1 rounded-md text-black'
+                                className='px-2 w-72 py-2 rounded-md text-black'
                                 type='text'
                                 placeholder='Coupon'
-                            />
+                            /> 
                         </div>
                         <div className="underline-cart"></div>
                         <div className='flex flex-row text-xl font-semibold py-4'>

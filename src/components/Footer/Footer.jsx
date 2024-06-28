@@ -42,7 +42,7 @@ return (
             placeholder='email address'
             value={emailAddress}
             onChange={(e) => setEmailAddress(e.target.value)}
-            className='w-60 p-3 text-black capitalize'/>
+            className='w-60 p-3 text-black'/>
             <button 
             type='submit'
             className='form-btn w-30 py-1 px-8'
@@ -50,7 +50,7 @@ return (
         </form>
     </div>
     <div className='text-white text-center py-5'>
-        © 2024 Headphones Store Inc. All rights reserved.
+        © 2024 Bass Headphones Store Inc. All rights reserved.
     </div>
     </section>
 )

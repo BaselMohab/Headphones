@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Cards from '../components/Cards/Cards';
 import Arrival from '../components/Arrival/Arrival';
@@ -16,7 +16,7 @@ const Home = () => {
 
   // const {currentUser, logout} = useAuth()
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // const [error, setError] = useState("")
 
