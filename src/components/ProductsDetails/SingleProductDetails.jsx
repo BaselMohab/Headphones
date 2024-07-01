@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import productData from './productsData'
 import { useGlobalContext } from '../../AppContexts/StoreContext';
+import { toast, Bounce } from 'react-toastify';
 import specs from  "./specs"
 
 const SingleProductDetails = () => {
@@ -41,7 +42,20 @@ const { id } = useParams();
               </div>
               <p className='text-3xl capitalize'>{product.desc}</p>
                   <button 
-                  onClick={() =>  add(product)}
+                  onClick={() => {
+                          add(product)
+                          toast.success("Product added to the cart", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            })
+                  }}
                   className='s-product-btn capitalize'>add to cart
                   </button>
                   <div className='flex flex-col text-white gap-10 p-5 rounded-sm benefits-box'>

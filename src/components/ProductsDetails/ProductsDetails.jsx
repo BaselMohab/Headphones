@@ -2,6 +2,8 @@ import React from 'react';
 import products from './productsData';
 import {useGlobalContext} from '../../AppContexts/StoreContext';
 import { Link } from 'react-router-dom';
+import { toast, Bounce } from 'react-toastify';
+
 
 const ProductsDetails = () => {
 
@@ -32,7 +34,20 @@ return (
                         <button className='product-btn-1 capitalize'>more details</button>
                         </Link>
                         <button 
-                        onClick={() =>  add(product)}
+                        onClick={() =>  {
+                            add(product)
+                            toast.success("Product added to the cart", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            })
+                        }}
                         className='product-btn-2 capitalize'>add to cart</button>
                     </div>
                 </div>    

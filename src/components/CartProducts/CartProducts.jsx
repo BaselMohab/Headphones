@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from '../../AppContexts/StoreContext';
+import { toast, Bounce } from 'react-toastify';
 
 const CartProducts = ({ item }) => {
     const { remove, increase, decrease } = useGlobalContext();
@@ -46,7 +47,20 @@ const CartProducts = ({ item }) => {
                 </div>
                 <button
                     className="trash text-white text-2xl"
-                    onClick={() => handleRemove(item)}
+                    onClick={() => {
+                            handleRemove(item)
+                            toast.info("Product Removed", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            })
+                    } }
                 >
                     <i className="fa-solid fa-trash-can"></i>
                 </button>

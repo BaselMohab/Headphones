@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import CartProducts from '../components/CartProducts/CartProducts';
 import { useGlobalContext } from '../AppContexts/StoreContext';
+import { toast, Bounce } from 'react-toastify';
 import {
     Button,
     Dialog,
@@ -39,6 +40,21 @@ const Cart = () => {
         setOpen(false);
         setCheckoutInitiated(false);
     };
+
+    function handleRemoveWithToast(item) {
+    clearCart()
+    toast.info("Cart Cleared", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+}
 
     return (
         <section className='cart items-center px-4'>
@@ -80,7 +96,7 @@ const Cart = () => {
                     <div className='flex justify-center py-7'>
                         <button
                             className='clear-btn text-lg'
-                            onClick={clearCart}
+                            onClick={() => handleRemoveWithToast()}
                         >
                             Clear Cart
                         </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast, Bounce } from 'react-toastify';
 import {Formik, Form, ErrorMessage, Field} from 'formik';
 import * as Yup from 'yup';
 
@@ -13,6 +14,17 @@ const ContactForm = () => {
     const onSubmit = (values, {resetForm}) => {
             console.log("onSubmit", values);
             resetForm()
+            toast.success("Form Submitted", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            })
         };
 
     const validationSchema = Yup.object({

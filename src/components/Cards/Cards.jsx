@@ -2,6 +2,8 @@ import React from 'react';
 import data from './cardsData'
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../../AppContexts/StoreContext';
+import { toast, Bounce } from 'react-toastify';
+
 
 const Cards = () => {
 
@@ -29,7 +31,20 @@ return (
                         <Link to={`/products/${id}`} className='card-btn-1'>more details</Link>
                         </button>   
                         <button 
-                        onClick={() =>  add(card)}
+                        onClick={() =>  {
+                            add(card)
+                            toast.success("Product added to the cart", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            })
+                        }}
                         ><Link className='card-btn-2 capitalize'>add to cart</Link></button>
                         </div>
                         </div>
