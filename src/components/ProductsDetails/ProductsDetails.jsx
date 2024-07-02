@@ -15,7 +15,7 @@ return (
         {products.map((product) => {
             const {id, image, name, desc, rating, stars, reviews, price} = product;
             return (
-                <div className='mt-10 product-details'>
+                <div className='mt-10 product-details' data-aos="fade-up">
                     <img src={image} alt={name} 
                     className='product-img'
                     />

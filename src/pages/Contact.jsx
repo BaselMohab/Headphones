@@ -11,7 +11,7 @@ return (
         <div className='text-white grid gap-14 px-4 mt-15 capitalize lg:grid-cols-4 xl:grid-cols-4'>
             <ContactInfo />
         </div>
-            <div className='mt-32 px-12'>
+            <div className='mt-32 px-12' data-aos="flip-left" data-aos-once="true">
                 <h2 className='text-center text-white text-3xl uppercase mb-4'>get in touch</h2>
                 <ContactForm />
             </div>

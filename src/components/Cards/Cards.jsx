@@ -11,7 +11,7 @@ const Cards = () => {
 return (
     <section className='cards m-3 p-2'>
         <h2 className='text-white text-2xl lg:text-5xl text-center mb-4 uppercase'>Seasonal Discount</h2>
-        <div className='grid gap-5 lg:grid-cols-3 xl:grid-cols-3 '>
+        <div className='grid gap-5 lg:grid-cols-3 xl:grid-cols-3' data-aos="fade-up" data-aos-once="true" >
             {data.map((card) => {
                 const {id, name, image, prePrice, price} = card;
                 return (

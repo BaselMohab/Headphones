@@ -30,9 +30,9 @@ const { id } = useParams();
         <div className="underline"></div>
         <div className='grid grid-cols-1 lg:grid-cols-2  text-white'>
           <div>
-            <img src={`/${product.image}`} alt={product.name} className='single-product-img' />
+            <img src={`/${product.image}`} alt={product.name} className='single-product-img' data-aos="fade-right" />
           </div>
-            <div className='flex flex-col text-center justify-start items-center gap-10 py-20'>
+            <div className='flex flex-col text-center justify-start items-center gap-10 py-20' data-aos="fade-up">
               <h2 className='text-5xl md:text-6xl font-semibold s-product-name'>{product.name}</h2>
               <p className='text-2xl md:text-3xl'>Price: ${product.price}.00</p>
               <div className='flex flex-col md:flex-row gap-2 md:gap-5 items-center justify-center'>
@@ -85,7 +85,7 @@ const { id } = useParams();
             </div>
             <div className='flex flex-col gap-10 specs'>
               <h1 className='capitalize text-3xl md:text-4xl text-white text-center'><span className='font-semibold s-product-name'>{product.name}</span> - premium wirless noise cancelation headphones</h1>
-              <div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-y-20'>
+              <div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-y-20' data-aos="fade-up">
                 {specs.map((spec) => {
                   const {id, icon, title} = spec;
                   return (
